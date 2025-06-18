@@ -7,13 +7,13 @@
 
 		<style>
 			:root {
-				--bg-main: #f9f9f9;
-				--card-bg: #ffffff;
-				--text-dark: #333;
-				--text-muted: #555;
-				--accent-color: #4a90e2; /* Azul profesional */
+				--bg-main: #121212;
+				--card-bg: #1e1e1e;
+				--text-light: #f5f5f5;
+				--text-muted: #bbb;
+				--accent-color: #4a90e2;
 				--border-radius: 8px;
-				--shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
+				--shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.2);
 				--transition: 0.3s ease;
 			}
 
@@ -25,7 +25,7 @@
 
 			body {
 				font-family: 'Segoe UI', sans-serif;
-				color: var(--text-dark);
+				color: var(--text-light);
 				background-color: var(--bg-main);
 				line-height: 1.7;
 				scroll-behavior: smooth;
@@ -33,7 +33,12 @@
 
 			a {
 				text-decoration: none;
-				color: var(--text-dark);
+				color: var(--accent-color);
+				transition: opacity var(--transition);
+			}
+
+			a:hover {
+				opacity: 0.8;
 			}
 
 			h1,
@@ -47,7 +52,7 @@
 			}
 
 			header {
-				background-color: #eaeaea;
+				background: #402549;
 				padding: 4rem 2rem;
 				text-align: center;
 			}
@@ -121,29 +126,52 @@
 				box-shadow: var(--shadow-sm);
 			}
 
-			.about h2 {
-				margin-bottom: 1.5rem;
+			.about p {
+				margin-bottom: 1.2rem;
 			}
 
 			.about-grid {
 				display: grid;
-				grid-template-columns: 1fr;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 				gap: 1.5rem;
+				margin-top: 2rem;
 			}
 
-			.about-grid div {
-				padding: 1rem;
+			.about-card {
+				padding: 1.5rem;
 				border-radius: var(--border-radius);
+				background-color: #2a2a2a;
+				transition:
+					transform var(--transition),
+					box-shadow var(--transition);
 			}
 
-			.about-grid h3 {
-				margin-bottom: 0.5rem;
+			.about-card:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+			}
+
+			.about-card h3 {
+				margin-bottom: 1rem;
 				color: var(--accent-color);
+				font-size: 1.2rem;
 			}
 
-			ul {
-				list-style: disc inside;
-				padding-left: 1rem;
+			.about-card ul {
+				padding-left: 1.2rem;
+			}
+
+			/* Colores específicos por categoría */
+			.about-card.skills {
+				background-color: #2b384d;
+			}
+
+			.about-card.experience {
+				background-color: #322c26;
+			}
+
+			.about-card.education {
+				background-color: #2b3b2b;
 			}
 
 			.cv-section {
@@ -159,16 +187,8 @@
 
 			.cv-section a {
 				display: inline-block;
-				padding: 0.8rem 1.5rem;
-				background-color: var(--accent-color);
-				color: white;
-				border-radius: var(--border-radius);
 				font-weight: 500;
-				transition: background var(--transition);
-			}
-
-			.cv-section a:hover {
-				background-color: #357ae8;
+				color: var(--accent-color);
 			}
 
 			.contact-links {
@@ -180,83 +200,19 @@
 			}
 
 			.contact-links a {
-				display: inline-block;
-				padding: 0.8rem 1.5rem;
-				background-color: var(--accent-color);
-				color: white;
-				border-radius: var(--border-radius);
+				color: var(--accent-color);
 				font-weight: 500;
-				transition: background var(--transition);
-				width: fit-content;
-			}
-
-			.contact-links a:hover {
-				background-color: #357ae8;
 			}
 
 			footer {
 				text-align: center;
 				padding: 2rem 1rem;
-				background-color: #f1f1f1;
+				background-color: #1a1a1a;
 				font-size: 0.9rem;
 				color: var(--text-muted);
 			}
-			/* --- SECCIÓN SOBRE MÍ RESPONSIVA Y VISUAL --- */
 
-			.about {
-				background-color: var(--card-bg);
-				padding: 2rem;
-				border-radius: var(--border-radius);
-				box-shadow: var(--shadow-sm);
-			}
-
-			.about p {
-				margin-bottom: 1.2rem;
-			}
-
-			.about-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-				gap: 1.5rem;
-				margin-top: 2rem;
-			}
-
-			.about-card {
-				padding: 1.5rem;
-				border-radius: var(--border-radius);
-				background-color: #f7f7f7;
-				transition:
-					transform var(--transition),
-					box-shadow var(--transition);
-			}
-
-			.about-card:hover {
-				transform: translateY(-4px);
-				box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-			}
-
-			.about-card h3 {
-				margin-bottom: 1rem;
-				color: var(--accent-color);
-				font-size: 1.2rem;
-			}
-
-			.about-card ul {
-				padding-left: 1.2rem;
-			}
-
-			/* Colores específicos por categoría */
-			.about-card.skills {
-				background-color: #e6f3ff;
-			}
-			.about-card.experience {
-				background-color: #fff3e6;
-			}
-			.about-card.education {
-				background-color: #e8ffe6;
-			}
-
-			/* En móvil, los textos son más pequeños y claros */
+			/* Responsive */
 			@media (max-width: 600px) {
 				.about p {
 					font-size: 0.95rem;
@@ -404,9 +360,10 @@
 				<!-- Descargar CV -->
 				<div class="cv-section">
 					<h3>¿Quieres conocer más sobre mi experiencia?</h3>
-					<a href="./cv.pdf" download>📄 Descargar CV</a>
+					<a href="./cv.pdf" download>Descargar CV</a>
 				</div>
 			</section>
+
 			<!-- Contacto -->
 			<section id="contacto" class="contact">
 				<h2>Contacto</h2>
@@ -416,7 +373,7 @@
 				<div class="contact-links">
 					<a href="mailto:juan.perez@email.com">✉️ Enviar Correo</a>
 					<a href="https://github.com/tuusuario" target="_blank"
-						>깃 Ver Perfil en GitHub</a
+						>Ver Perfil en GitHub</a
 					>
 				</div>
 			</section>
