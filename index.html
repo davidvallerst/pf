@@ -201,6 +201,76 @@
 				font-size: 0.9rem;
 				color: var(--text-muted);
 			}
+			/* --- SECCIÓN SOBRE MÍ RESPONSIVA Y VISUAL --- */
+
+			.about {
+				background-color: var(--card-bg);
+				padding: 2rem;
+				border-radius: var(--border-radius);
+				box-shadow: var(--shadow-sm);
+			}
+
+			.about p {
+				margin-bottom: 1.2rem;
+			}
+
+			.about-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 1.5rem;
+				margin-top: 2rem;
+			}
+
+			.about-card {
+				padding: 1.5rem;
+				border-radius: var(--border-radius);
+				background-color: #f7f7f7;
+				transition:
+					transform var(--transition),
+					box-shadow var(--transition);
+			}
+
+			.about-card:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+			}
+
+			.about-card h3 {
+				margin-bottom: 1rem;
+				color: var(--accent-color);
+				font-size: 1.2rem;
+			}
+
+			.about-card ul {
+				padding-left: 1.2rem;
+			}
+
+			/* Colores específicos por categoría */
+			.about-card.skills {
+				background-color: #e6f3ff;
+			}
+			.about-card.experience {
+				background-color: #fff3e6;
+			}
+			.about-card.education {
+				background-color: #e8ffe6;
+			}
+
+			/* En móvil, los textos son más pequeños y claros */
+			@media (max-width: 600px) {
+				.about p {
+					font-size: 0.95rem;
+					line-height: 1.6;
+				}
+
+				.about-card h3 {
+					font-size: 1.1rem;
+				}
+
+				.about-card ul {
+					font-size: 0.9rem;
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -259,22 +329,22 @@
 			<section id="sobremi">
 				<div class="about">
 					<h2>Sobre Mí</h2>
-					<p
-						>Soy un apasionado del desarrollo web y el diseño UX/UI con varios
+					<p>
+						Soy un apasionado del desarrollo web y el diseño UX/UI con varios
 						años de experiencia trabajando en proyectos personales y
 						colaborativos. Me encanta aprender nuevas tecnologías y aplicarlas
-						para resolver problemas reales.</p
-					>
-					<br />
-					<p
-						>Tengo un fuerte interés en la accesibilidad, la optimización de
+						para resolver problemas reales.
+					</p>
+					<p>
+						Tengo un fuerte interés en la accesibilidad, la optimización de
 						rendimiento y la experiencia del usuario. Siempre busco mejorar mis
-						habilidades y estar al día con las tendencias del mundo tech.</p
-					>
+						habilidades y estar al día con las tendencias del mundo tech.
+					</p>
 
 					<div class="about-grid">
-						<div>
-							<h3>Habilidades</h3>
+						<!-- Habilidades -->
+						<div class="about-card skills">
+							<h3>🛠️ Habilidades</h3>
 							<ul>
 								<li>HTML5, CSS3, JavaScript ES6+</li>
 								<li>Frameworks: React, Svelte, Vue.js</li>
@@ -283,8 +353,10 @@
 								<li>Diseño: Figma, Adobe XD, Sketch</li>
 							</ul>
 						</div>
-						<div>
-							<h3>Experiencia</h3>
+
+						<!-- Experiencia -->
+						<div class="about-card experience">
+							<h3>💼 Experiencia</h3>
 							<p
 								><strong>Desarrollador Full Stack Freelance</strong>,
 								2020–Presente</p
@@ -312,8 +384,10 @@
 								>
 							</ul>
 						</div>
-						<div>
-							<h3>Educación</h3>
+
+						<!-- Educación -->
+						<div class="about-card education">
+							<h3>🎓 Educación</h3>
 							<p><strong>Ingeniería en Sistemas Computacionales</strong></p>
 							<p>Universidad Nacional Autónoma - 2015–2020</p>
 							<br />
@@ -330,10 +404,9 @@
 				<!-- Descargar CV -->
 				<div class="cv-section">
 					<h3>¿Quieres conocer más sobre mi experiencia?</h3>
-					<a href="./cv.pdf" download>Descargar CV</a>
+					<a href="./cv.pdf" download>📄 Descargar CV</a>
 				</div>
 			</section>
-
 			<!-- Contacto -->
 			<section id="contacto" class="contact">
 				<h2>Contacto</h2>
