@@ -13,7 +13,8 @@
 			:root {
 				font-family: 'Rubik', sans-serif;
 				font-optical-sizing: auto;
-				--bg-main: #625080;
+				--bg-main: #7f2fff;
+				--bg-main-gradient-ending-color: #2c033d;
 				--card-bg: #1f1c2c;
 				--text-light: #f5f5f5;
 				--text-muted: #bbb;
@@ -36,7 +37,12 @@
 			body {
 				font-family: 'Segoe UI', sans-serif;
 				color: var(--text-light);
-				background-color: var(--bg-main);
+				background: linear-gradient(
+					to bottom,
+					var(--bg-main-gradient-ending-color),
+					var(--bg-main),
+					black
+				);
 				line-height: 1.7;
 				scroll-behavior: smooth;
 			}
@@ -62,7 +68,7 @@
 			}
 
 			header {
-				background: #110039;
+				background: #070018;
 				padding: 4rem 2rem;
 				text-align: center;
 			}
@@ -217,7 +223,8 @@
 			footer {
 				text-align: center;
 				padding: 2rem 1rem;
-				background-color: #1a1a1a;
+				background-color: #ffffff14;
+				backdrop-filter: blur(10px);
 				font-size: 0.9rem;
 				color: var(--text-muted);
 			}
@@ -392,6 +399,6 @@
 			</section>
 		</main>
 
-		<footer> &copy; 2025 Juan Pérez. Todos los derechos reservados. </footer>
+		<footer> &copy; 2025 David Valle. Todos los derechos reservados. </footer>
 	</body>
 </html>
